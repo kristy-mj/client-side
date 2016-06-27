@@ -84,5 +84,5 @@ function once(n){var o=!1;return function(){if(!o)return o=!0,n.apply(this,argum
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{}],30:[function(require,module,exports){
-var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(a,e,l,n,t){var r,u=null!=e?e:{},m=l.helperMissing,s="function",i=a.escapeExpression;return"<h1>Hello "+i((r=null!=(r=l.name||(null!=e?e.name:e))?r:m,typeof r===s?r.call(u,{name:"name",hash:{},data:t}):r))+"!</h1>\n<ul>Data "+i((r=null!=(r=l.data||(null!=e?e.data:e))?r:m,typeof r===s?r.call(u,{name:"data",hash:{},data:t}):r))+"</ul>\n"},useData:!0});
+var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(a,e,l,n,t){var r,u=null!=e?e:{},s=l.helperMissing,i="function",m=a.escapeExpression;return"<h1>Hello "+m((r=null!=(r=l.name||(null!=e?e.name:e))?r:s,typeof r===i?r.call(u,{name:"name",hash:{},data:t}):r))+"!</h1>\n<ul>The ISS is cuurently at: "+m((r=null!=(r=l.data||(null!=e?e.data:e))?r:s,typeof r===i?r.call(u,{name:"data",hash:{},data:t}):r))+"</ul>\n"},useData:!0});
 },{"hbsfy/runtime":23}]},{},[1]);
