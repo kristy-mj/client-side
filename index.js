@@ -1,7 +1,7 @@
 var xhr = require('xhr')
 var greeting = require('./views/greeting.hbs')
 
-var endpoint = 'https://api.wheretheiss.at/v1/satellites'
+var endpoint = 'https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693'
 
 xhr.get(endpoint, function (err, data) {
   if (err) {
