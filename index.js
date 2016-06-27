@@ -7,8 +7,9 @@ xhr.get(endpoint, function (err, data) {
   if (err) {
     console.error(err)
   }
-  console.log(typeof data.body) // FYI: data.body is a string
-  var satellite = JSON.stringify(data.body)
+  console.log(JSON.parse(data.body)) // FYI: data.body is a string
+  console.log(JSON.parse(data.body[0]))
+  var satellite = data.body
 
   // Replace 'Space' below with the response
   var target = document.getElementsByTagName('main')[0]
