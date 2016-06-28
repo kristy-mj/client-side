@@ -9,7 +9,7 @@ xhr.get(endpoint, function (err, data) {
     console.error(err)
   }
 
-  var satellite = JSON.parse(data.body[0]) 
+  var satellite = JSON.parse(data.body)[0] 
   
   console.log(satellite)
 
