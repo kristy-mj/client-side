@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var xhr=require("xhr"),greeting=require("./views/greeting.hbs"),endpoint="https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693";xhr.get(endpoint,function(e,r){e&&console.error(e);var n=JSON.parse(r.body)[0];console.log(n);var t=document.getElementsByTagName("main")[0];t.innerHTML=greeting({name:"Space"},n)});
+var xhr=require("xhr"),greeting=require("./views/greeting.hbs"),endpoint="https://api.wheretheiss.at/v1/satellites";xhr.get(endpoint,function(e,r){e&&console.error(e);var n=JSON.parse(r.body)[0];console.log(n);var t=document.getElementsByTagName("main")[0];t.innerHTML=greeting({name:"Space"},n)});
 },{"./views/greeting.hbs":30,"xhr":27}],2:[function(require,module,exports){
 function forEach(r,t,o){if(!isFunction(t))throw new TypeError("iterator must be a function");arguments.length<3&&(o=this),"[object Array]"===toString.call(r)?forEachArray(r,t,o):"string"==typeof r?forEachString(r,t,o):forEachObject(r,t,o)}function forEachArray(r,t,o){for(var n=0,a=r.length;n<a;n++)hasOwnProperty.call(r,n)&&t.call(o,r[n],n,r)}function forEachString(r,t,o){for(var n=0,a=r.length;n<a;n++)t.call(o,r.charAt(n),n,r)}function forEachObject(r,t,o){for(var n in r)hasOwnProperty.call(r,n)&&t.call(o,r[n],n,r)}var isFunction=require("is-function");module.exports=forEach;var toString=Object.prototype.toString,hasOwnProperty=Object.prototype.hasOwnProperty;
 
@@ -70,9 +70,9 @@ module.exports=require("./dist/cjs/handlebars.runtime")["default"];
 module.exports=require("handlebars/runtime")["default"];
 },{"handlebars/runtime":22}],24:[function(require,module,exports){
 function isFunction(o){var t=toString.call(o);return"[object Function]"===t||"function"==typeof o&&"[object RegExp]"!==t||"undefined"!=typeof window&&(o===window.setTimeout||o===window.alert||o===window.confirm||o===window.prompt)}module.exports=isFunction;var toString=Object.prototype.toString;
+
 },{}],25:[function(require,module,exports){
 var trim=require("trim"),forEach=require("for-each"),isArray=function(r){return"[object Array]"===Object.prototype.toString.call(r)};module.exports=function(r){if(!r)return{};var e={};return forEach(trim(r).split("\n"),function(r){var t=r.indexOf(":"),i=trim(r.slice(0,t)).toLowerCase(),o=trim(r.slice(t+1));"undefined"==typeof e[i]?e[i]=o:isArray(e[i])?e[i].push(o):e[i]=[e[i],o]}),e};
-
 },{"for-each":2,"trim":26}],26:[function(require,module,exports){
 function trim(r){return r.replace(/^\s*|\s*$/g,"")}exports=module.exports=trim,exports.left=function(r){return r.replace(/^\s*/,"")},exports.right=function(r){return r.replace(/\s*$/,"")};
 
@@ -84,5 +84,5 @@ function once(n){var o=!1;return function(){if(!o)return o=!0,n.apply(this,argum
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{}],30:[function(require,module,exports){
-var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(l,e,n,t,i){var a,u,r=null!=e?e:{},o=n.helperMissing,s="function",m=l.escapeExpression,d=l.lambda;return"<h1>Hello "+m((u=null!=(u=n.name||(null!=e?e.name:e))?u:o,typeof u===s?u.call(r,{name:"name",hash:{},data:i}):u))+"!</h1>\n\n<ul>The ISS is currently at: \n"+m((u=null!=(u=n.satellite||(null!=e?e.satellite:e))?u:o,typeof u===s?u.call(r,{name:"satellite",hash:{},data:i}):u))+"\n\t<li>Latitude: "+m(d(null!=(a=null!=e?e.satellite:e)?a.id:a,e))+"</li>\n\t<li>Longitude: "+m(d(null!=e?e.longitude:e,e))+"</li>\n\t<li>Timezone: "+m(d(null!=e?e.timezone_id:e,e))+"</li>\n\t<li>Offset: "+m(d(null!=e?e.offset:e,e))+"</li>\n\t<li>Country: "+m(d(null!=e?e.country_code:e,e))+"</li>\n\t<li>Map: "+m(d(null!=e?e.map_url:e,e))+"</li>\n</ul>\n\n"},useData:!0});
+var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(e,l,n,a,i){var r,t=e.escapeExpression,u=e.lambda;return"<h1>Hello "+t((r=null!=(r=n.name||(null!=l?l.name:l))?r:n.helperMissing,"function"==typeof r?r.call(null!=l?l:{},{name:"name",hash:{},data:i}):r))+"!</h1>\n\n<ul>The ISS is currently at: \n\t<li>Latitude: "+t(u(null!=l?l.name:l,l))+"</li>\n\t<li>Longitude: "+t(u(null!=l?l.id:l,l))+"</li>\n</ul>\n\n"},useData:!0});
 },{"hbsfy/runtime":23}]},{},[1]);
