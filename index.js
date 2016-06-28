@@ -9,13 +9,12 @@ xhr.get(endpoint, function (err, data) {
     console.error(err)
   }
 
-  var satellite = data.body
-  var satObj = JSON.parse(satellite) 
-  console.log(satObj)
+  var satellite = JSON.parse(data.body) 
+
 
   // Replace 'Space' below with the response
   var target = document.getElementsByTagName('main')[0]
-  target.innerHTML = greeting({name: 'Space'})
+  target.innerHTML = greeting({name: 'Space'}, satellite)
 
   // var target = document.getElementsByTagName('main')[0]
   // target.innerHTML = issData({satellite})
