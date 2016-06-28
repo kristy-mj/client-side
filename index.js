@@ -9,9 +9,9 @@ xhr.get(endpoint, function (err, data) {
     console.error(err)
   }
 
-  var satellite = JSON.parse(data.body) 
+  var satellite = JSON.parse(data.body[0]) 
   
-  console.log(satellite[0])
+  console.log(satellite)
 
   // Replace 'Space' below with the response
   var target = document.getElementsByTagName('main')[0]
