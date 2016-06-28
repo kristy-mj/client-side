@@ -68,7 +68,6 @@ function forEach(r,t,o){if(!isFunction(t))throw new TypeError("iterator must be 
 module.exports=require("./dist/cjs/handlebars.runtime")["default"];
 },{"./dist/cjs/handlebars.runtime":4}],23:[function(require,module,exports){
 module.exports=require("handlebars/runtime")["default"];
-
 },{"handlebars/runtime":22}],24:[function(require,module,exports){
 function isFunction(o){var t=toString.call(o);return"[object Function]"===t||"function"==typeof o&&"[object RegExp]"!==t||"undefined"!=typeof window&&(o===window.setTimeout||o===window.alert||o===window.confirm||o===window.prompt)}module.exports=isFunction;var toString=Object.prototype.toString;
 },{}],25:[function(require,module,exports){
