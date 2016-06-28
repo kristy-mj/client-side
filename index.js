@@ -10,6 +10,7 @@ xhr.get(endpoint, function (err, data) {
   }
 
   var satellite = JSON.parse(data.body) 
+  
   console.log(satellite[0])
 
   // Replace 'Space' below with the response
