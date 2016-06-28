@@ -68,6 +68,7 @@ function forEach(r,t,o){if(!isFunction(t))throw new TypeError("iterator must be 
 module.exports=require("./dist/cjs/handlebars.runtime")["default"];
 },{"./dist/cjs/handlebars.runtime":4}],23:[function(require,module,exports){
 module.exports=require("handlebars/runtime")["default"];
+
 },{"handlebars/runtime":22}],24:[function(require,module,exports){
 function isFunction(o){var t=toString.call(o);return"[object Function]"===t||"function"==typeof o&&"[object RegExp]"!==t||"undefined"!=typeof window&&(o===window.setTimeout||o===window.alert||o===window.confirm||o===window.prompt)}module.exports=isFunction;var toString=Object.prototype.toString;
 },{}],25:[function(require,module,exports){
@@ -84,5 +85,5 @@ function once(n){var o=!1;return function(){if(!o)return o=!0,n.apply(this,argum
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{}],30:[function(require,module,exports){
-var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(l,n,e,a,t){var r,u,i=l.escapeExpression,s=l.lambda;return"<h1>Hello "+i((u=null!=(u=e.astronanut||(null!=n?n.astronanut:n))?u:e.helperMissing,"function"==typeof u?u.call(null!=n?n:{},{name:"astronanut",hash:{},data:t}):u))+"!</h1>\n\n<ul>The ISS is currently:\n\t<li>Name: "+i(s(null!=(r=null!=n?n.satellite:n)?r.name:r,n))+"</li>\n\t<li>ID: "+i(s(null!=n?n.id:n,n))+"</li>\n</ul>\n\n"},useData:!0});
+var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(l,e,n,a,t){var i,u,r=null!=e?e:{},s=n.helperMissing,o="function",m=l.escapeExpression,p=l.lambda;return"<h1>Hello "+m((u=null!=(u=n.astronanut||(null!=e?e.astronanut:e))?u:s,typeof u===o?u.call(r,{name:"astronanut",hash:{},data:t}):u))+"!</h1>\n\n<ul>The ISS is currently: "+m((u=null!=(u=n.satellite||(null!=e?e.satellite:e))?u:s,typeof u===o?u.call(r,{name:"satellite",hash:{},data:t}):u))+"\n\t<li>Name: "+m(p(null!=(i=null!=e?e.satellite:e)?i.name:i,e))+"</li>\n\t<li>ID: "+m(p(null!=e?e.id:e,e))+"</li>\n</ul>\n\n"},useData:!0});
 },{"hbsfy/runtime":23}]},{},[1]);
